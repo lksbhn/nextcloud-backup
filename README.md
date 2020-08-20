@@ -28,4 +28,5 @@ $ mkdir /mnt/backup_data
 ```
 $ sudo nano /root/backup_data.sh
 ```
+4. copy code from rep to it and change the locations to your needs
 ## Backup 2
