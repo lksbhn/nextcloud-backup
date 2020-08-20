@@ -26,7 +26,7 @@ $ mkdir /mnt/backup_data
 ```
 3. Create backup_data.sh in /root like
 ```
-$ sudo nano /root/backup_data.sh
+$ sudo nano /root/backup_net_drive.sh
 ```
 4. copy code from rep to it and change the locations to your needs
 ## Backup 2
