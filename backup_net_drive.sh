@@ -10,7 +10,7 @@ echo ------------------------------------------------------------ >> /mnt/nextcl
 echo $(date)": Mounten der Backup Festplatte WD." >> /mnt/nextclouddata/clouddata/__groupfolders/12/Log/Backup.txt
 
 #Mount the Network Drive
-/bin/mount -t cifs //192.168.178.22/K3Backup/02_Cloud -o credentials=~/.smbcredentials /mnt/backup_data
+/bin/mount -t cifs //192.168.178.22/K3Backup/02_Cloud -o credentials=/root/.smbcredentials /mnt/backup_data
 
 #If drive is mounted
 if mountpoint -q /mnt/backup_data
