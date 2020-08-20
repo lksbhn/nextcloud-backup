@@ -12,20 +12,24 @@ echo $(date)": Mobil Backup wird gestartet." >> /mnt/nextclouddata/clouddata/__g
 
 #Mounten
 /bin/mount -t auto /dev/$1 /mnt/backup
+echo $(date)": Mounten erfolgreich" >> /mnt/nextclouddata/clouddata/__groupfolders/12/Log/Backup.txt
 
 #Backup
 /usr/bin/logger Backup Mobil - Nextcloud Daten
 /usr/bin/rsync -rtv --del --modify-window=2 /mnt/nextclouddata/clouddata /mnt/backup #Daten
+echo $(date)": Datenbackup  erfolgreich" >> /mnt/nextclouddata/clouddata/__groupfolders/12/Log/Backup.txt
 /usr/bin/rsync -rtv --del --modify-window=2 /var/www/html /mnt/backup/installver #Installationsverzeichnis
+echo $(date)": Install verzeichnis erfolgreich" >> /mnt/nextclouddata/clouddata/__groupfolders/12/Log/Backup.txt
 
 #
 /bin/sync
 
 #Datenbank speichern
-mysqldump --single-transaction -h localhost -u nextcloud -plukas nextcloud > /mnt/backup/db_backup_`date +"%Y%m%d"`.sql
+#mysqldump --single-transaction -h localhost -u nextcloud -plukas nextcloud > /mnt/backup/db_backup_`date +"%Y%m%d"`.sql
 
 #Unmounten
 /bin/umount /mnt/backup
+echo $(date)": Unmounten erefolgreich" >> /mnt/nextclouddata/clouddata/__groupfolders/12/Log/Backup.txt
 
 #Piepen
 beep -f130 -l100 -n -f262 -l100 -n -f330 -l100 -n -f392 -l100 -n -f523  -l100 -n -f660 -l100 -n -f784 -l300 -n -f660 -l300 -n -f146 -l100 -n -f262 -l100 -n -f311 -l1$
@@ -36,3 +40,4 @@ beep -f130 -l100 -n -f262 -l100 -n -f330 -l100 -n -f392 -l100 -n -f523  -l100 -n
 #Backup End Log in Cloud
 echo $(date)": Mobil Backup wird beendet." >> /mnt/nextclouddata/clouddata/__groupfolders/12/Log/Backup.txt
 echo ------------------------------------------------------------ >> /mnt/nextclouddata/clouddata/__groupfolders/12/Log/Backup.txt
+

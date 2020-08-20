@@ -38,4 +38,7 @@ $ sudo nano /etc/udev/rules.d/50-backup.rules
 ```
 $ sudo nano /root/backup_mobil.sh
 ```
-
+3. Create Backup Folder in /mnt like
+```
+$ mkdir /mnt/backup
+```
