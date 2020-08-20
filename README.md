@@ -28,5 +28,14 @@ $ mkdir /mnt/backup_data
 ```
 $ sudo nano /root/backup_net_drive.sh
 ```
-4. copy code from rep to it and change the locations to your needs
 ## Backup 2
+### Required files
+1. Create rule file that detects the harddrive and runs the script for backup
+```
+$ sudo nano /etc/udev/rules.d/50-backup.rules
+```
+2. Create Backup script
+```
+$ sudo nano /root/backup_mobil.sh
+```
+
