@@ -28,6 +28,16 @@ $ mkdir /mnt/backup_data
 ```
 $ sudo nano /root/backup_net_drive.sh
 ```
+4. Create Cron Job
+```
+$ crontab -e
+```
+put
+```
+00 2 * * 3 /bin/bash -c /root/backup_net_drive.sh
+``` 
+to the end
+
 ## Backup 2
 ### Required files
 1. Create rule file that detects the harddrive and runs the script for backup
