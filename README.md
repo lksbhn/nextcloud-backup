@@ -24,17 +24,22 @@ password:YOUR-PASSWORD
 ```
 $ mkdir /mnt/backup_data
 ```
-3. Create backup_data.sh in /root like
+3. Create backup_data.sh in /usr/local/bin like
 ```
-$ sudo nano /root/backup_net_drive.sh
+$ sudo nano /usr/local/bin/backup_net_drive.sh
 ```
-4. Create Cron Job
+4.
+Make Script executable
+```
+$ sudo chmod +x /usr/local/bin/backup_net_drive.sh
+```
+5. Create Cron Job
 ```
 $ crontab -e
 ```
 put
 ```
-00 2 * * 3 /bin/bash -c /root/backup_net_drive.sh
+00 2 * * 3 /bin/bash -c /usr/local/bin/backup_net_drive.sh
 ``` 
 to the end
 
