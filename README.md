@@ -50,9 +50,9 @@ $ sudo nano /etc/udev/rules.d/50-backup.rules
 ```
 2. Create Backup script
 ```
-$ sudo nano /root/backup_mobil.sh
+$ sudo nano /usr/local/bin/backup_mobil.sh
 ```
 3. Create Backup Folder in /mnt like
 ```
-$ mkdir /mnt/backup
+$ mkdir /mnt/backup_mobil
 ```
