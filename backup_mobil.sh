@@ -11,29 +11,29 @@ echo $(date)": Mobil Backup wird gestartet." >> /mnt/nextclouddata/clouddata/__g
 
 
 #Mounten
-/bin/mount -t auto /dev/$1 /mnt/backup
+/bin/mount -t auto /dev/$1 /mnt/backup_mobil
 
-if mountpoint -q /mnt/backup
+if mountpoint -q /mnt/backup_mobil
 then
     echo $(date)": Mounten erfolgreich" >> /mnt/nextclouddata/clouddata/__groupfolders/12/Log/Backup.txt
     echo $(date)": Mounten erfolgreich"
     #Backup
     /usr/bin/logger Backup Mobil - Nextcloud Daten
     #Daten
-    /usr/bin/rsync -rtv --del --modify-window=2 /mnt/nextclouddata/clouddata /mnt/backup/clouddata
+    /usr/bin/rsync -rtv --del --modify-window=2 /mnt/nextclouddata/clouddata /mnt/backup_mobil/clouddata
     echo $(date)": Datenbackup  erfolgreich" >> /mnt/nextclouddata/clouddata/__groupfolders/12/Log/Backup.txt
     #Installationsverzeichnis
-    #/usr/bin/rsync -rtv --del --modify-window=2 /var/www/html /mnt/backup/installver 
+    #/usr/bin/rsync -rtv --del --modify-window=2 /var/www/html /mnt/backup_mobil/installver 
     #echo $(date)": Install verzeichnis erfolgreich" >> /mnt/nextclouddata/clouddata/__groupfolders/12/Log/Backup.txt
 
     #
     /bin/sync
 
     #Datenbank speichern
-    #mysqldump --single-transaction -h localhost -u nextcloud -p lukas nextcloud > /mnt/backup/db_backup_`date +"%Y%m%d"`.sql
+    #mysqldump --single-transaction -h localhost -u nextcloud -p lukas nextcloud > /mnt/backup_mobil/db_backup_`date +"%Y%m%d"`.sql
 
     #Unmounten
-    /bin/umount /mnt/backup
+    /bin/umount /mnt/backup_mobil
     echo $(date)": Unmounten erfolgreich" >> /mnt/nextclouddata/clouddata/__groupfolders/12/Log/Backup.txt
     echo $(date)": Unmounten erfolgreich"
     #Piepen

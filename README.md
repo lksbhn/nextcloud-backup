@@ -28,8 +28,7 @@ $ mkdir /mnt/backup_data
 ```
 $ sudo nano /usr/local/bin/backup_net_drive.sh
 ```
-4.
-Make Script executable
+4. Make Script executable
 ```
 $ sudo chmod +x /usr/local/bin/backup_net_drive.sh
 ```
